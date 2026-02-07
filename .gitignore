@@ -9,3 +9,5 @@ obj/
 *.user
 *.suo
 *.db
+
+Properties/launchSettings.json
