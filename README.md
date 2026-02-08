@@ -42,7 +42,7 @@ The project follows **Clean Architecture** principles to ensure the business log
 
 1.  **Clone the repository:**
     ```bash
-    git clone [https://github.com/tushxr12/FinTechPortfolio](https://github.com/tushxr12/FinTechPortfolio)
+    git clone (https://github.com/tushxr12/FinTechPortfolio)
     ```
 
 2.  **Navigate to the API project directory:**
