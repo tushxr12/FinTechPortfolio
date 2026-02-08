@@ -1,4 +1,4 @@
-# PortfolioPulse: Fintech Valuation Engine
+# FinTechPortfolio : Fintech Valuation Engine
 
 A high-performance **Fintech Backend Engine** designed to track investment portfolios, fetch real-time market data, and provide instant profit/loss analytics. Built with a focus on **Clean Architecture** and scalability using .NET 8.
 
