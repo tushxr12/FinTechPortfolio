@@ -7,4 +7,10 @@ public class TransactionDto
     public decimal Quantity {get; set;}
 
     public decimal PurchasePrice {get; set;}
+
+    public decimal CurrentPrice {get; set;}
+
+    public decimal ProfitLoss {get; set;}
+
+    public decimal ProfitLossPercentage {get; set;}
 }

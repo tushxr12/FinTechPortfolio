@@ -5,5 +5,5 @@ namespace Portfolio.Application.Interfaces;
 public interface ITransactionService
 {
     Task<IEnumerable<TransactionDto>> GetPortfolioAsync();
-    Task CreateTransactionAsync(TransactionDto transactionDto);
+    Task CreateTransactionAsync(TransactionCreateDTO transactionDto);
 }

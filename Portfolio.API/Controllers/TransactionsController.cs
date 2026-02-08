@@ -23,7 +23,7 @@ public class TransactionsController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<IActionResult> AddTransaction([FromBody] TransactionDto dto)
+    public async Task<IActionResult> AddTransaction([FromBody] TransactionCreateDTO dto)
     {
         await _service.CreateTransactionAsync(dto);
         return Ok(new {message = "Transaction added succesfully!"});
