@@ -3,6 +3,7 @@ using Portfolio.Application.Interfaces;
 using Portfolio.Application.Services;
 using Portfolio.Domain.Interfaces;
 using Portfolio.Infrastructure;
+using Portfolio.Infrastructure.ExternalServices;
 using Portfolio.Infrastructure.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -27,6 +28,12 @@ builder.Services.AddScoped<ITransactionService, TransactionService>();
 builder.Services.AddCors(options => {
     options.AddPolicy("AllowAll",
         policy => policy.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+});
+
+// Register HttpClient for Alpha vantage
+builder.Services.AddHttpClient<IMarketDataService, AlphaVantageService>(client => 
+{
+    client.BaseAddress = new Uri(builder.Configuration["AlphaVantage:BaseUrl"]!);
 });
 
 var app = builder.Build();
