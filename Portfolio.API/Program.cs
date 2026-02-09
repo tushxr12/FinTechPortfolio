@@ -36,6 +36,9 @@ builder.Services.AddHttpClient<IMarketDataService, AlphaVantageService>(client =
     client.BaseAddress = new Uri(builder.Configuration["AlphaVantage:BaseUrl"]!);
 });
 
+// add memory cache
+builder.Services.AddMemoryCache();
+
 var app = builder.Build();
 
 // Configuring http request pipeline
