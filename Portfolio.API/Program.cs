@@ -5,6 +5,9 @@ using Portfolio.Domain.Interfaces;
 using Portfolio.Infrastructure;
 using Portfolio.Infrastructure.ExternalServices;
 using Portfolio.Infrastructure.Repositories;
+using Portfolio.API.Middleware;
+using Serilog;
+using Serilog.Events;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -39,7 +42,16 @@ builder.Services.AddHttpClient<IMarketDataService, AlphaVantageService>(client =
 // add memory cache
 builder.Services.AddMemoryCache();
 
+Log.Logger = new LoggerConfiguration()
+    .WriteTo.Console()
+    .WriteTo.File("logs/portfolio-log.txt", rollingInterval: RollingInterval.Day)
+    .CreateLogger();
+
+builder.Host.UseSerilog();
+
 var app = builder.Build();
+
+app.UseMiddleware<ExceptionMiddleware>();
 
 // Configuring http request pipeline
 
